@@ -53,7 +53,7 @@ export default function MembersPage() {
                 </div>
                 <CardTitle className="text-3xl font-headline">सदस्य नोंदणी</CardTitle>
                 <CardDescription>
-                डायमंड स्पोर्ट्स क्लबचे सदस्य होऊन या कार्यात सामील व्हा.
+                मंडळाचे सदस्य होऊन या कार्यात सामील व्हा.
                 </CardDescription>
             </CardHeader>
             <CardContent>

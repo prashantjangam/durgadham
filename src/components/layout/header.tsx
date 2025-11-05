@@ -28,7 +28,7 @@ export function Header() {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Icons.om className="h-8 w-8 text-primary" />
           <span className="hidden font-bold sm:inline-block font-headline">
-            डायमंड स्पोर्ट्स क्लब
+          डायमंड स्पोर्ट्स क्लब
           </span>
         </Link>
         <nav className="hidden md:flex gap-6 text-sm font-medium">

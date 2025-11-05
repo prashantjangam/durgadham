@@ -31,10 +31,10 @@ export default function Home() {
         <div className="container px-4 md:px-6 z-20 relative">
           <div className="max-w-3xl mx-auto space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary font-headline">
-              डायमंड स्पोर्ट्स क्लब
+            डायमंड स्पोर्ट्स क्लब संचलित दुर्गामाता मंदिर आणि मित्र मंडळ
             </h1>
             <p className="text-lg md:text-xl text-foreground/80">
-              डायमंड स्पोर्ट्स क्लब आयोजित दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा. आपले योगदान अमूल्य आहे.
+              डायमंड स्पोर्ट्स क्लब संचलित दुर्गामाता मंदिर आणि मित्र मंडळ आयोजित दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा. आपले योगदान अमूल्य आहे.
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
@@ -80,7 +80,7 @@ export default function Home() {
               </CardHeader>
               <CardContent>
                 <p className="text-muted-foreground">
-                  या पवित्र कार्यात सामील व्हा आणि डायमंड स्पोर्ट्स क्लबचे सदस्य बना.
+                  या पवित्र कार्यात सामील व्हा आणि मंडळाचे सदस्य बना.
                 </p>
                 <Button asChild variant="link" className="px-0">
                   <Link href="/members">
