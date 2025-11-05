@@ -11,7 +11,8 @@ import { useState } from "react";
 
 const navLinks = [
   { href: "/", label: "मुख्य पान" },
-  { href: "/history", label: "मंदिराचा इतिहास" },
+  { href: "/temple", label: "दुर्गामाता मंदिर" },
+  { href: "/renovation", label: "जिर्णोद्धार मोहीम" },
   { href: "/donate", label: "देणगी" },
   { href: "/members", label: "सदस्य" },
   { href: "/events", label: "कार्यक्रम" },

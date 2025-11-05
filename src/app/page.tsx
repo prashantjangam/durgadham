@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { ArrowRight, Gift, History, Users, Calendar } from 'lucide-react';
+import { ArrowRight, Gift, Building2, Wrench, Users, Calendar } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { events } from '@/lib/data';
 
@@ -43,7 +43,7 @@ export default function Home() {
                 </Link>
               </Button>
               <Button asChild size="lg" variant="outline">
-                <Link href="/history">
+                <Link href="/renovation">
                   अधिक जाणून घ्या <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -58,7 +58,7 @@ export default function Home() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 font-headline">
-                  <History className="text-primary" /> मंदिराचा इतिहास
+                  <Building2 className="text-primary" /> दुर्गामाता मंदिर
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -66,7 +66,24 @@ export default function Home() {
                   मंदिराचा गौरवशाली इतिहास, त्याची स्थापना आणि महत्त्व जाणून घ्या.
                 </p>
                 <Button asChild variant="link" className="px-0">
-                  <Link href="/history">
+                  <Link href="/temple">
+                    सविस्तर वाचा <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2 font-headline">
+                  <Wrench className="text-primary" /> जिर्णोद्धार मोहीम
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  मंदिराच्या नूतनीकरण आणि विस्तार योजनेबद्दल अधिक जाणून घ्या.
+                </p>
+                <Button asChild variant="link" className="px-0">
+                  <Link href="/renovation">
                     सविस्तर वाचा <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
@@ -85,23 +102,6 @@ export default function Home() {
                 <Button asChild variant="link" className="px-0">
                   <Link href="/members">
                     नोंदणी करा <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="hover:shadow-lg transition-shadow lg:col-span-1 md:col-span-2">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-headline">
-                  <Calendar className="text-primary" /> आगामी कार्यक्रम
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  मंदिरात आयोजित होणाऱ्या विविध कार्यक्रमांची माहिती मिळवा.
-                </p>
-                <Button asChild variant="link" className="px-0">
-                  <Link href="/events">
-                    सर्व कार्यक्रम पहा <ArrowRight className="ml-1 h-4 w-4" />
                   </Link>
                 </Button>
               </CardContent>
