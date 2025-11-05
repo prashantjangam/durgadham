@@ -5,7 +5,7 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'दुर्गाधाम जिर्णोद्धार',
+  title: 'डायमंड स्पोर्ट्स क्लब',
   description: 'डायमंड स्पोर्ट्स क्लब आणि दुर्गा माता मंदिर जिर्णोद्धार मोहीम',
 };
 

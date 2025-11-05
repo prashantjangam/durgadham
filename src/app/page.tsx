@@ -31,7 +31,7 @@ export default function Home() {
         <div className="container px-4 md:px-6 z-20 relative">
           <div className="max-w-3xl mx-auto space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary font-headline">
-              दुर्गाधाम जिर्णोद्धार मोहीम
+              डायमंड स्पोर्ट्स क्लब
             </h1>
             <p className="text-lg md:text-xl text-foreground/80">
               डायमंड स्पोर्ट्स क्लब आयोजित दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा. आपले योगदान अमूल्य आहे.

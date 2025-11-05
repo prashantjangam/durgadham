@@ -28,7 +28,7 @@ export function Header() {
         <Link href="/" className="mr-6 flex items-center space-x-2">
           <Icons.om className="h-8 w-8 text-primary" />
           <span className="hidden font-bold sm:inline-block font-headline">
-            दुर्गाधाम जिर्णोद्धार
+            डायमंड स्पोर्ट्स क्लब
           </span>
         </Link>
         <nav className="hidden md:flex gap-6 text-sm font-medium">
@@ -59,7 +59,7 @@ export function Header() {
             <SheetContent side="left">
               <Link href="/" className="mr-6 flex items-center space-x-2 mb-6">
                 <Icons.om className="h-8 w-8 text-primary" />
-                <span className="font-bold font-headline">दुर्गाधाम</span>
+                <span className="font-bold font-headline">डायमंड स्पोर्ट्स क्लब</span>
               </Link>
               <div className="flex flex-col gap-4">
                 {navLinks.map((link) => (
