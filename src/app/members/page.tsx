@@ -1,8 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import { Card, CardContent } from "@/components/ui/card";
-import { members } from "@/lib/data";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { members, boardMembers } from "@/lib/data";
+import { Users } from "lucide-react";
 
 export default function MembersPage() {
   return (
@@ -33,6 +34,25 @@ export default function MembersPage() {
           </Card>
         ))}
       </div>
+
+      <div className="max-w-6xl mx-auto mt-16">
+        <Card>
+          <CardHeader>
+            <CardTitle className="flex items-center gap-3 font-headline text-2xl">
+              <Users className="text-primary" />
+              कार्यकारिणी सदस्य
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-3">
+              {boardMembers.map((name) => (
+                <p key={name} className="text-muted-foreground text-sm font-medium">{name}</p>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+
     </div>
   );
 }
