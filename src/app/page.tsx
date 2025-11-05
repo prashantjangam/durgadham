@@ -3,11 +3,13 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { ArrowRight, Gift, Building2, Wrench, Users, Calendar } from 'lucide-react';
+import { ArrowRight, Gift, Building2, Wrench, Users, Calendar, GalleryHorizontal } from 'lucide-react';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { events } from '@/lib/data';
 
 const heroImage = PlaceHolderImages.find(p => p.id === 'hero-temple');
+const galleryImages = PlaceHolderImages.filter(p => p.id.startsWith('gallery-')).slice(0, 4);
+const upcomingEvents = events.slice(0, 3);
 
 export default function Home() {
   const donationGoal = 5000000;
@@ -142,6 +144,87 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
+        <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                <div className="space-y-2">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">आगामी कार्यक्रम</h2>
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                    मंदिरात आयोजित होणाऱ्या विविध धार्मिक आणि सामाजिक कार्यक्रमांची माहिती.
+                    </p>
+                </div>
+            </div>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {upcomingEvents.map((event) => (
+                <Card key={event.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300">
+                    <div className="relative h-48 w-full">
+                    <Image
+                        src={event.image}
+                        alt={event.title}
+                        fill
+                        className="object-cover"
+                        data-ai-hint={event.imageHint}
+                    />
+                    </div>
+                    <CardHeader>
+                    <CardTitle className="font-headline">{event.title}</CardTitle>
+                    <CardDescription className="flex items-center gap-2 pt-1 text-sm text-primary font-semibold">
+                        <Calendar className="h-4 w-4" />
+                        {event.date}
+                    </CardDescription>
+                    </CardHeader>
+                    <CardContent className="flex-grow">
+                    <p className="text-muted-foreground">{event.description}</p>
+                    </CardContent>
+                </Card>
+                ))}
+            </div>
+            <div className="text-center mt-8">
+                <Button asChild variant="outline">
+                    <Link href="/events">
+                    सर्व कार्यक्रम पहा <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                </Button>
+            </div>
+        </div>
+      </section>
+
+      <section className="w-full py-12 md:py-16 lg:py-20 bg-secondary/10">
+        <div className="container px-4 md:px-6">
+            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
+                <div className="space-y-2">
+                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">गॅलरी</h2>
+                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
+                        मंदिरातील काही अविस्मरणीय क्षणांची छायाचित्रे.
+                    </p>
+                </div>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {galleryImages.map((image) => (
+                <div key={image.id} className="group relative overflow-hidden rounded-lg">
+                    <Image
+                    src={image.imageUrl}
+                    alt={image.description}
+                    width={600}
+                    height={400}
+                    className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
+                    data-ai-hint={image.imageHint}
+                    />
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+                </div>
+                ))}
+            </div>
+            <div className="text-center mt-8">
+                 <Button asChild variant="outline">
+                    <Link href="/gallery">
+                        संपूर्ण गॅलरी पहा <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                </Button>
+            </div>
+        </div>
+      </section>
+
     </div>
   );
 }
