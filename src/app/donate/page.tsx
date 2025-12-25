@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Banknote, QrCode, Gift } from "lucide-react";
+import { Banknote, QrCode, Gift, Receipt } from "lucide-react";
 
 export default function DonatePage() {
   return (
@@ -52,27 +52,23 @@ export default function DonatePage() {
             <Card className="border-dashed h-full">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2 font-headline">
-                       <QrCode /> QR कोडने पेमेंट करा
+                       <Receipt /> देणगी पावती
                     </CardTitle>
                      <CardDescription>
-                        खालील QR कोड स्कॅन करून UPI द्वारे देणगी द्या.
+                        तुम्ही दिलेल्या देणगीची पावती येथे पहा.
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center space-y-4">
-                   <div className="relative w-64 h-64 border-4 border-primary rounded-lg p-2">
+                   <div className="relative w-full overflow-hidden rounded-lg">
                      <Image 
-                        src="https://picsum.photos/seed/qrcode/256/256" 
-                        alt="QR Code for UPI Payment"
-                        width={256}
-                        height={256}
+                        src="/donation-receipt.jpeg" 
+                        alt="Donation Receipt"
+                        width={400}
+                        height={550}
                         className="object-contain"
-                        data-ai-hint="qr code"
+                        data-ai-hint="donation receipt"
                      />
                    </div>
-                   <p className="font-bold text-lg text-primary">डायमंड स्पोर्ट्स क्लब</p>
-                   <p className="text-muted-foreground text-center text-sm">
-                        कोणतेही UPI ॲप वापरून स्कॅन करा (Google Pay, PhonePe, Paytm, इ.).
-                   </p>
                 </CardContent>
             </Card>
         </CardContent>
