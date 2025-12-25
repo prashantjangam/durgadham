@@ -49,46 +49,47 @@ export default function MembersPage() {
         </div>
       </div>
       
-      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
-        {/* Members */}
-        <Card className="border-primary/20 bg-primary/5">
-            <CardHeader>
-                <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
-                <Users />
-                सदस्य
-                </CardTitle>
-            </CardHeader>
-            <CardContent>
-                <div className="space-y-3">
-                {members.map((name) => (
-                    <div key={name} className="flex items-center gap-3">
-                    <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    <p className="text-muted-foreground font-medium">{name}</p>
+      <div className="max-w-6xl mx-auto space-y-12">
+        {/* Members & Advisors */}
+        <div className="grid md:grid-cols-2 gap-12">
+            <Card className="border-primary/20 bg-primary/5">
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                    <Users />
+                    सदस्य
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="space-y-3">
+                    {members.map((name) => (
+                        <div key={name} className="flex items-center gap-3">
+                        <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                        <p className="text-muted-foreground font-medium">{name}</p>
+                        </div>
+                    ))}
                     </div>
-                ))}
-                </div>
-            </CardContent>
-        </Card>
+                </CardContent>
+            </Card>
 
-        {/* Advisors */}
-        <Card className="border-primary/20 bg-primary/5">
-            <CardHeader>
-                <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
-                <Shield />
-                सल्लागार
-                </CardTitle>
-            </CardHeader>
-            <CardContent>
-                <div className="space-y-3">
-                {advisors.map((name) => (
-                    <div key={name} className="flex items-center gap-3">
-                    <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    <p className="text-muted-foreground font-medium">{name}</p>
+            <Card className="border-primary/20 bg-primary/5">
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                    <Shield />
+                    सल्लागार
+                    </CardTitle>
+                </CardHeader>
+                <CardContent>
+                    <div className="space-y-3">
+                    {advisors.map((name) => (
+                        <div key={name} className="flex items-center gap-3">
+                        <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                        <p className="text-muted-foreground font-medium">{name}</p>
+                        </div>
+                    ))}
                     </div>
-                ))}
-                </div>
-            </CardContent>
-        </Card>
+                </CardContent>
+            </Card>
+        </div>
         
         {/* General Members */}
         <Card className="border-primary/20 bg-primary/5">
@@ -99,11 +100,11 @@ export default function MembersPage() {
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <div className="space-y-3 h-96 overflow-y-auto">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-4 pt-4">
                 {generalMembers.map((name) => (
                     <div key={name} className="flex items-center gap-3">
                     <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                    <p className="text-muted-foreground font-medium">{name}</p>
+                    <p className="text-muted-foreground font-medium text-sm">{name}</p>
                     </div>
                 ))}
                 </div>
