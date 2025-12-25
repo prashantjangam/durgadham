@@ -1,14 +1,24 @@
 "use client";
 
-import Image from "next/image";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { members, boardMembers } from "@/lib/data";
-import { Users, UserSquare } from "lucide-react";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import { executiveCommittee, members, advisors, generalMembers } from "@/lib/data";
+import { Users, UserSquare, Shield, Star, Crown } from "lucide-react";
+
+const roleIcons: { [key: string]: React.ReactNode } = {
+  "संचालक": <Crown className="h-4 w-4 text-secondary" />,
+  "अध्यक्ष": <Star className="h-4 w-4 text-secondary" />,
+  "उपाध्यक्ष": <Star className="h-4 w-4 text-secondary/80" />,
+  "सेक्रेटरी": <Users className="h-4 w-4 text-secondary/80" />,
+  "उपसेक्रेटरी": <Users className="h-4 w-4 text-secondary/70" />,
+  "खजिनदार": <Users className="h-4 w-4 text-secondary/80" />,
+  "उपखजिनदार": <Users className="h-4 w-4 text-secondary/70" />,
+};
+
 
 export default function MembersPage() {
   return (
     <div className="container py-12 md:py-20">
-      <div className="text-center mb-12">
+      <div className="text-center mb-16">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">
           समिती सदस्य
         </h1>
@@ -16,48 +26,88 @@ export default function MembersPage() {
           आमचे मार्गदर्शक आणि या मोहिमेचे आधारस्तंभ.
         </p>
       </div>
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 max-w-6xl mx-auto">
-        {members.map((member) => (
-          <Card key={member.id} className="text-center overflow-hidden hover:shadow-xl transition-all duration-300 group">
-             <div className="relative h-24 bg-secondary/20"></div>
-             <CardContent className="pt-6 relative">
-              <div className="absolute -top-16 left-1/2 -translate-x-1/2">
-                 <Image
-                    src={member.imageUrl}
-                    alt={member.name}
-                    width={120}
-                    height={120}
-                    className="rounded-full mx-auto border-4 border-background bg-background group-hover:scale-105 group-hover:shadow-md transition-transform duration-300"
-                    data-ai-hint={member.imageHint}
-                  />
-              </div>
-              <div className="pt-12">
-                <h3 className="text-xl font-bold font-headline mt-2">{member.name}</h3>
-                <p className="text-primary font-semibold">{member.role}</p>
-              </div>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
 
-      <div className="max-w-6xl mx-auto mt-20">
+      {/* Executive Committee */}
+      <div className="max-w-5xl mx-auto mb-16">
+          <h2 className="text-3xl font-headline font-bold text-center mb-8 flex items-center justify-center gap-3">
+             <Shield className="h-8 w-8 text-primary" /> कार्यकारी मंडळ
+          </h2>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {executiveCommittee.map((member) => (
+            <Card key={member.name} className="text-center border-0 shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
+                <CardHeader className="p-4 bg-primary/10 rounded-t-lg">
+                    <div className="flex items-center justify-center gap-2 text-primary font-bold">
+                        {roleIcons[member.role] || <UserSquare className="h-4 w-4" />}
+                        <h3 className="text-base font-headline">{member.role}</h3>
+                    </div>
+                </CardHeader>
+                <CardContent className="p-4">
+                    <p className="text-lg font-semibold text-foreground">{member.name}</p>
+                </CardContent>
+            </Card>
+          ))}
+        </div>
+      </div>
+      
+      <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-12">
+        {/* Members */}
         <Card className="border-primary/20 bg-primary/5">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
-              <Users />
-              कार्यकारिणी सदस्य
-            </CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-4">
-              {boardMembers.map((name) => (
-                <div key={name} className="flex items-center gap-2">
-                  <UserSquare className="h-4 w-4 text-muted-foreground" />
-                  <p className="text-muted-foreground font-medium">{name}</p>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                <Users />
+                सदस्य
+                </CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="space-y-3">
+                {members.map((name) => (
+                    <div key={name} className="flex items-center gap-3">
+                    <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                    <p className="text-muted-foreground font-medium">{name}</p>
+                    </div>
+                ))}
                 </div>
-              ))}
-            </div>
-          </CardContent>
+            </CardContent>
+        </Card>
+
+        {/* Advisors */}
+        <Card className="border-primary/20 bg-primary/5">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                <Shield />
+                सल्लागार
+                </CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="space-y-3">
+                {advisors.map((name) => (
+                    <div key={name} className="flex items-center gap-3">
+                    <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                    <p className="text-muted-foreground font-medium">{name}</p>
+                    </div>
+                ))}
+                </div>
+            </CardContent>
+        </Card>
+        
+        {/* General Members */}
+        <Card className="border-primary/20 bg-primary/5">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
+                <Users />
+                सभासद
+                </CardTitle>
+            </CardHeader>
+            <CardContent>
+                <div className="space-y-3 h-96 overflow-y-auto">
+                {generalMembers.map((name) => (
+                    <div key={name} className="flex items-center gap-3">
+                    <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                    <p className="text-muted-foreground font-medium">{name}</p>
+                    </div>
+                ))}
+                </div>
+            </CardContent>
         </Card>
       </div>
 
