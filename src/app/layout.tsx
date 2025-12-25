@@ -5,8 +5,8 @@ import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: 'डायमंड स्पोर्ट्स क्लब संचालित दुर्गामाता मंदिर आणि मित्र मंडळ',
-  description: 'डायमंड स्पोर्ट्स क्लब संचालित दुर्गामाता मंदिर आणि मित्र मंडळातर्फे जिर्णोद्धार मोहीम',
+  title: 'डायमंड स्पोर्ट्स क्लब ( संचालित ) दुर्गामाता मंदिर आणि मित्र मंडळ',
+  description: 'डायमंड स्पोर्ट्स क्लब ( संचालित ) दुर्गामाता मंदिर आणि मित्र मंडळातर्फे जिर्णोद्धार मोहीम',
 };
 
 export default function RootLayout({
