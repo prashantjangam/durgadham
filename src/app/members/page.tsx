@@ -32,17 +32,17 @@ export default function MembersPage() {
           <h2 className="text-3xl font-headline font-bold text-center mb-8 flex items-center justify-center gap-3">
              <Shield className="h-8 w-8 text-primary" /> कार्यकारी मंडळ
           </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
           {executiveCommittee.map((member) => (
             <Card key={member.name} className="text-center border-0 shadow-lg hover:shadow-primary/20 transition-shadow duration-300">
                 <CardHeader className="p-4 bg-primary/10 rounded-t-lg">
                     <div className="flex items-center justify-center gap-2 text-primary font-bold">
                         {roleIcons[member.role] || <UserSquare className="h-4 w-4" />}
-                        <h3 className="text-base font-headline">{member.role}</h3>
+                        <h3 className="text-sm md:text-base font-headline">{member.role}</h3>
                     </div>
                 </CardHeader>
-                <CardContent className="p-4">
-                    <p className="text-lg font-semibold text-foreground">{member.name}</p>
+                <CardContent className="p-3 md:p-4">
+                    <p className="text-base md:text-lg font-semibold text-foreground">{member.name}</p>
                 </CardContent>
             </Card>
           ))}
@@ -51,7 +51,7 @@ export default function MembersPage() {
       
       <div className="max-w-6xl mx-auto space-y-12">
         {/* Members & Advisors */}
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid md:grid-cols-2 gap-8 md:gap-12">
             <Card className="border-primary/20 bg-primary/5">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-3 font-headline text-2xl text-primary">
@@ -100,7 +100,7 @@ export default function MembersPage() {
                 </CardTitle>
             </CardHeader>
             <CardContent>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-6 gap-y-4 pt-4">
+                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-x-4 gap-y-3 md:gap-x-6 md:gap-y-4 pt-4">
                 {generalMembers.map((name) => (
                     <div key={name} className="flex items-center gap-3">
                     <UserSquare className="h-4 w-4 text-muted-foreground flex-shrink-0" />
