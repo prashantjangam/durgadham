@@ -33,10 +33,10 @@ export default function Home() {
         <div className="container px-4 md:px-6 z-20 relative">
           <div className="max-w-3xl mx-auto space-y-4">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary font-headline">
-            डायमंड स्पोर्ट्स क्लब संचलित दुर्गामाता मंदिर आणि मित्र मंडळ
+            डायमंड स्पोर्ट्स क्लब संचालित दुर्गामाता मंदिर आणि मित्र मंडळ
             </h1>
             <p className="text-lg md:text-xl text-foreground/80">
-              डायमंड स्पोर्ट्स क्लब संचलित दुर्गामाता मंदिर आणि मित्र मंडळ आयोजित दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा. आपले योगदान अमूल्य आहे.
+              डायमंड स्पोर्ट्स क्लब संचालित दुर्गामाता मंदिर आणि मित्र मंडळ आयोजित दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा. आपले योगदान अमूल्य आहे.
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
@@ -191,7 +191,7 @@ export default function Home() {
       </section>
 
       <section className="w-full py-12 md:py-16 lg:py-20 bg-secondary/10">
-        <div className="container px-4 md:px-6">
+        <div className="container px-4 md-px-6">
             <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
                 <div className="space-y-2">
                     <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">गॅलरी</h2>
