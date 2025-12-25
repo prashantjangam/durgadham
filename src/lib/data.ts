@@ -59,7 +59,7 @@ export const events: Event[] = [
 
 export const executiveCommittee: ExecutiveMember[] = [
     { role: "संचालक", name: "विजय कदम"},
-    { role: "अध्यक्ष", name: "बबन आगळे"},
+    { role: "अध्यक्ष", name: "बबन आमले"},
     { role: "उपाध्यक्ष", name: "सिताराम तानवडे"},
     { role: "सेक्रेटरी", name: "किरण सातवे"},
     { role: "उपसेक्रेटरी", name: "अविनाश सातवे"},
