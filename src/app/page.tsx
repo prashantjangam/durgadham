@@ -1,14 +1,44 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { ArrowRight, Gift, Building2, Wrench, Users, Calendar, GalleryHorizontal } from 'lucide-react';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { ArrowRight, Gift, Building2, Wrench, Users, Calendar } from 'lucide-react';
 import { events } from '@/lib/data';
 
-const heroImage = PlaceHolderImages.find(p => p.id === 'hero-temple');
-const galleryImages = PlaceHolderImages.filter(p => p.id.startsWith('gallery-')).slice(0, 4);
+const heroImage = {
+  imageUrl: "https://images.unsplash.com/photo-1729372982406-2b0412ac6c3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxpbmRpYW4lMjB0ZW1wbGV8ZW58MHx8fHwxNzYyMzUyMzMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+  description: "A beautiful temple at sunrise, representing the Durgadham project.",
+  imageHint: "indian temple",
+};
+
+const galleryImages = [
+    {
+      id: "gallery-1",
+      description: "Devotees participating in a festival.",
+      imageUrl: "https://images.unsplash.com/photo-1604107176347-97563698a408?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxoaW5kdSUyMGZlc3RpdmFsfGVufDB8fHx8MTc2MjMyMjg1NXww&ixlib=rb-4.1.0&q=80&w=1080",
+      imageHint: "hindu festival"
+    },
+    {
+      id: "gallery-2",
+      description: "Close-up of the temple architecture.",
+      imageUrl: "https://images.unsplash.com/photo-1677182821331-4e2441421066?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx0ZW1wbGUlMjBhcmNoaXRlY3R1cmV8ZW58MHx8fHwxNzYyMzUyMzI5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      imageHint: "temple architecture"
+    },
+    {
+      id: "gallery-3",
+      description: "Evening aarti at the temple.",
+      imageUrl: "https://images.unsplash.com/photo-1542669367-c5d56c4a97f2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxldmVuaW5nJTIwcHJheWVyfGVufDB8fHx8MTc2MjM1MjMzMHww&ixlib=rb-4.1.0&q=80&w=1080",
+      imageHint: "evening prayer"
+    },
+    {
+      id: "gallery-4",
+      description: "A vibrant celebration at the temple.",
+      imageUrl: "https://images.unsplash.com/photo-1600495495739-8e2a8f4ada40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8aW5kaWFuJTIwY2VsZWJyYXRpb258ZW58MHx8fHwxNzYyMzUyMzMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      imageHint: "indian celebration"
+    }
+];
 const upcomingEvents = events.slice(0, 3);
 
 export default function Home() {

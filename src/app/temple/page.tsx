@@ -1,8 +1,11 @@
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
-const historyImage1 = PlaceHolderImages.find(p => p.id === 'history-1');
+const historyImage1 = {
+  imageUrl: "/new-temple-design.jpeg",
+  description: "An old picture of the temple.",
+  imageHint: "temple design",
+};
 
 export default function TemplePage() {
   return (

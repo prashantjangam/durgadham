@@ -1,11 +1,14 @@
 import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { Gift } from 'lucide-react';
 
-const historyImage2 = PlaceHolderImages.find(p => p.id === 'history-2');
+const historyImage2 = {
+  imageUrl: "/architectural-design.jpeg",
+  description: "Architectural design for the temple renovation.",
+  imageHint: "architectural design",
+};
 
 export default function RenovationPage() {
   return (
