@@ -27,7 +27,7 @@ export const events: Event[] = [
     title: "वार्षिक कीर्तन महोत्सव",
     date: "२० ऑगस्ट, २०२४",
     description: "प्रसिद्ध कीर्तनकारांच्या उपस्थितीत भव्य कीर्तन सोहळा.",
-    image: "/images/new-temple-design.jpeg",
+    image: "/images/temple-3d-model.jpeg",
     imageHint: "devotional singing"
   },
   {
@@ -43,7 +43,7 @@ export const events: Event[] = [
     title: "महाप्रसाद",
     date: "प्रत्येक शनिवारी",
     description: "दर शनिवारी संध्याकाळी आरतीनंतर महाप्रसादाचे आयोजन.",
-    image: "/images/new-temple-design.jpeg",
+    image: "/images/temple-3d-model.jpeg",
     imageHint: "community meal"
   },
   {

@@ -1,8 +1,9 @@
+
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 const historyImage1 = {
-  imageUrl: "/images/new-temple-design.jpeg",
+  imageUrl: "/images/temple-3d-model.jpeg",
   description: "An old picture of the temple.",
   imageHint: "temple design",
 };
