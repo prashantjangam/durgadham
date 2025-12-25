@@ -69,7 +69,7 @@ export const executiveCommittee: ExecutiveMember[] = [
 
 export const members: string[] = [
     "ओंकार बारस्कर",
-    "सागर सुकदेव",
+    "सागर सुखदरे",
     "विठोबा नाडणकर",
     "प्रमोद पाटे",
     "प्रतीक जाधव",
@@ -160,5 +160,6 @@ export const generalMembers: string[] = [
     "निर्मित बने",
     "सुशांत घाणेकर"
 ];
+
 
 
