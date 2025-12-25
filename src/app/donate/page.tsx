@@ -52,21 +52,20 @@ export default function DonatePage() {
             <Card className="border-dashed h-full">
                 <CardHeader>
                     <CardTitle className="flex items-center gap-2 font-headline">
-                       <Receipt /> देणगी पावती
+                       <QrCode /> QR कोडद्वारे देणगी
                     </CardTitle>
                      <CardDescription>
-                        तुम्ही दिलेल्या देणगीची पावती येथे पहा.
+                        खाली दिलेला QR कोड स्कॅन करून देणगी द्या.
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center space-y-4">
-                   <div className="relative w-full overflow-hidden rounded-lg">
+                   <div className="relative w-full max-w-[300px] aspect-square overflow-hidden rounded-lg">
                      <Image 
-                        src="/donation-receipt.jpeg" 
-                        alt="Donation Receipt"
-                        width={400}
-                        height={550}
+                        src="/donation-qr.jpg" 
+                        alt="Donation QR Code"
+                        fill
                         className="object-contain"
-                        data-ai-hint="donation receipt"
+                        data-ai-hint="qr code"
                      />
                    </div>
                 </CardContent>
