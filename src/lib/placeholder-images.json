@@ -14,9 +14,9 @@
     },
     {
       "id": "history-2",
-      "description": "The current state of the temple, showing areas needing renovation.",
-      "imageUrl": "/renovated-temple.jpeg",
-      "imageHint": "renovated temple"
+      "description": "Architectural design for the temple renovation.",
+      "imageUrl": "/architectural-design.jpeg",
+      "imageHint": "architectural design"
     },
     {
       "id": "gallery-1",

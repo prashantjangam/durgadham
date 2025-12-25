@@ -25,18 +25,7 @@ export default function RenovationPage() {
             <CardHeader>
               <CardTitle className="font-headline text-2xl">सद्यस्थिती आणि गरज</CardTitle>
             </CardHeader>
-            <CardContent className="grid md:grid-cols-2 gap-8 items-center">
-              {historyImage2 && (
-                <div className="relative h-64 md:h-80 rounded-lg overflow-hidden md:order-last">
-                  <Image
-                    src={historyImage2.imageUrl}
-                    alt={historyImage2.description}
-                    fill
-                    className="object-cover"
-                    data-ai-hint={historyImage2.imageHint}
-                  />
-                </div>
-              )}
+            <CardContent>
               <div className="space-y-4 text-muted-foreground">
                 <p>
                   काळानुसार, मंदिराची रचना आता जुनी झाली असून काही ठिकाणी तिची दुरुस्ती करणे अत्यंत आवश्यक झाले आहे. वाढत्या लोकसंख्येमुळे आणि भक्तांच्या सोयीसाठी मंदिराचा विस्तार करणे ही काळाची गरज आहे.
@@ -53,6 +42,17 @@ export default function RenovationPage() {
               <CardTitle className="font-headline text-2xl">जिर्णोद्धार योजना</CardTitle>
             </CardHeader>
             <CardContent>
+               {historyImage2 && (
+                <div className="relative h-[400px] md:h-[600px] rounded-lg overflow-hidden mb-8">
+                  <Image
+                    src={historyImage2.imageUrl}
+                    alt={historyImage2.description}
+                    fill
+                    className="object-contain"
+                    data-ai-hint={historyImage2.imageHint}
+                  />
+                </div>
+              )}
               <ul className="list-disc list-inside space-y-4 text-muted-foreground">
                 <li>
                   <strong>मंदिर बांधकाम:</strong> मंदिराच्या मुख्य गाभाऱ्याचे नूतनीकरण आणि मजबुतीकरण करणे.
