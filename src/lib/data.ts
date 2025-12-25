@@ -64,7 +64,7 @@ export const executiveCommittee: ExecutiveMember[] = [
     { role: "सेक्रेटरी", name: "किरण सातोपे"},
     { role: "उपसेक्रेटरी", name: "अविनाश सातोपे"},
     { role: "खजिनदार", name: "पांडुरंग नाडणकर"},
-    { role: "उपखजिनदार", name: "सुशील गांगवकर"},
+    { role: "उपखजिनदार", name: "सुशील गावकर"},
 ]
 
 export const members: string[] = [
@@ -75,7 +75,7 @@ export const members: string[] = [
     "प्रतीक जाधव",
     "विजय गावडे",
     "अनिकेत कदम",
-    "शुभम गांगवकर",
+    "शुभम गावकर",
     "मनीष म्हात्रे",
     "आशिष वीर"
 ];
@@ -160,3 +160,4 @@ export const generalMembers: string[] = [
     "निर्मित बने",
     "सुशांत घाणेकर"
 ];
+
