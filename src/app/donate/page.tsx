@@ -61,7 +61,7 @@ export default function DonatePage() {
                 <CardContent className="flex flex-col items-center justify-center space-y-4">
                    <div className="relative w-full max-w-[300px] aspect-square overflow-hidden rounded-lg">
                      <Image 
-                        src="/donation-qr.jpg" 
+                        src="/images/donation-qr.jpg" 
                         alt="Donation QR Code"
                         fill
                         className="object-contain"

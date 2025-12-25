@@ -27,7 +27,7 @@ export const events: Event[] = [
     title: "वार्षिक कीर्तन महोत्सव",
     date: "२० ऑगस्ट, २०२४",
     description: "प्रसिद्ध कीर्तनकारांच्या उपस्थितीत भव्य कीर्तन सोहळा.",
-    image: "https://picsum.photos/seed/event1/400/250",
+    image: "/images/new-temple-design.jpeg",
     imageHint: "devotional singing"
   },
   {
@@ -35,7 +35,7 @@ export const events: Event[] = [
     title: "नवरात्री उत्सव",
     date: "३ ऑक्टोबर - १२ ऑक्टोबर, २०२४",
     description: "नऊ दिवसांचा भव्य नवरात्री उत्सव, दररोज विविध धार्मिक कार्यक्रम.",
-    image: "https://picsum.photos/seed/event2/400/250",
+    image: "/images/architectural-design.jpeg",
     imageHint: "navratri festival"
   },
   {
@@ -43,7 +43,7 @@ export const events: Event[] = [
     title: "महाप्रसाद",
     date: "प्रत्येक शनिवारी",
     description: "दर शनिवारी संध्याकाळी आरतीनंतर महाप्रसादाचे आयोजन.",
-    image: "https://picsum.photos/seed/event3/400/250",
+    image: "/images/new-temple-design.jpeg",
     imageHint: "community meal"
   },
   {
@@ -51,7 +51,7 @@ export const events: Event[] = [
     title: "भूमिपूजन समारंभ",
     date: "२५ डिसेंबर, २०२४",
     description: "मंदिराच्या जिर्णोद्धार कार्याचा शुभारंभ, भूमिपूजन समारंभ.",
-    image: "https://picsum.photos/seed/event4/400/250",
+    image: "/images/architectural-design.jpeg",
     imageHint: "groundbreaking ceremony"
   },
 ];
@@ -160,5 +160,3 @@ export const generalMembers: string[] = [
     "निमिष बने",
     "सुशांत घाणेकर"
 ];
-
-

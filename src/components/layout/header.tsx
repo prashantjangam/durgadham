@@ -32,7 +32,7 @@ export function Header() {
           <Icons.om className="h-8 w-8 text-primary" />
           <div className="flex flex-col">
             <span className="hidden font-bold sm:inline-block font-headline">
-              डायमंड स्पोर्ट्स क्लब ( संचालित )
+              डायमंड स्पोर्ट्स क्लब
             </span>
             <span className="hidden sm:inline-block text-xs text-muted-foreground">
               स्थापना १९७५
