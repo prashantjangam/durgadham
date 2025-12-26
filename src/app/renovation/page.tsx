@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { Gift } from 'lucide-react';
 
 const historyImage2 = {
-  imageUrl: "/images/architectural-design.jpeg",
+  imageUrl: "/images/plan.png",
   description: "Architectural design for the temple renovation.",
   imageHint: "architectural design",
 };

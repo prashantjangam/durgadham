@@ -23,7 +23,7 @@ const galleryImages = [
     {
       id: "gallery-2",
       description: "Close-up of the temple architecture.",
-      imageUrl: "/images/architectural-design.jpeg",
+      imageUrl: "/images/plan.png",
       imageHint: "temple architecture"
     },
     {
@@ -35,7 +35,7 @@ const galleryImages = [
     {
       id: "gallery-4",
       description: "A vibrant celebration at the temple.",
-      imageUrl: "/images/architectural-design.jpeg",
+      imageUrl: "/images/plan.png",
       imageHint: "indian celebration"
     }
 ];

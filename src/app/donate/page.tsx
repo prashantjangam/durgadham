@@ -1,7 +1,7 @@
 
 import Image from "next/image";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Banknote, QrCode, Gift, Receipt } from "lucide-react";
+import { Banknote, Gift, Receipt } from "lucide-react";
 
 export default function DonatePage() {
   return (
@@ -50,25 +50,26 @@ export default function DonatePage() {
             </Card>
 
             <Card className="border-dashed h-full">
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2 font-headline">
-                       <QrCode /> QR कोडद्वारे देणगी
-                    </CardTitle>
-                     <CardDescription>
-                        खाली दिलेला QR कोड स्कॅन करून देणगी द्या.
-                    </CardDescription>
-                </CardHeader>
-                <CardContent className="flex flex-col items-center justify-center space-y-4">
-                   <div className="relative w-full max-w-[300px] aspect-square overflow-hidden rounded-lg">
-                     <Image 
-                        src="/images/donation-qr.jpg" 
-                        alt="Donation QR Code"
-                        fill
-                        className="object-contain"
-                        data-ai-hint="qr code"
-                     />
-                   </div>
-                </CardContent>
+               <CardHeader>
+                  <CardTitle className="flex items-center gap-2 font-headline">
+                    <Receipt /> देणगी पावती
+                  </CardTitle>
+                  <CardDescription>
+                    तुमच्या देणगीची पावती खाली पाहू शकता. (PDF स्वरूप)
+                  </CardDescription>
+               </CardHeader>
+               <CardContent className="flex flex-col items-center justify-center space-y-4">
+                 <div className="w-full">
+                  <iframe
+                    title="Donation Receipt"
+                    src="public/donation.pdf"
+                    className="w-full h-96 rounded-lg border"
+                   />
+                      <p className="text-sm text-muted-foreground mt-2">
+                        If the PDF doesn't render, open <strong>public/donation.pdf</strong> or <a href="/donation.pdf" className="text-primary underline" target="_blank" rel="noreferrer">open the donation receipt</a> in a new tab.
+                      </p>
+                 </div>
+               </CardContent>
             </Card>
         </CardContent>
       </Card>
