@@ -83,6 +83,13 @@
   }
 }
 
+/* Make html/body take full height so min-h-screen works as expected */
+html,
+body,
+#__next {
+  height: 100%;
+}
+
 /* Make images and embedded content responsive and center-friendly */
 img,
 iframe,

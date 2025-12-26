@@ -8,7 +8,7 @@ import { ArrowRight, Gift, Building2, Wrench, Users, Calendar } from 'lucide-rea
 import { events } from '@/lib/data';
 
 const heroImage = {
-  imageUrl: "/images/temple-3d-model.jpeg",
+  imageUrl: "/images/temple.png",
   description: "A beautiful temple at sunrise, representing the Durgadham project.",
   imageHint: "indian temple",
 };
@@ -17,7 +17,7 @@ const galleryImages = [
     {
       id: "gallery-1",
       description: "Devotees participating in a festival.",
-      imageUrl: "/images/temple-3d-model.jpeg",
+      imageUrl: "/images/temple.png",
       imageHint: "hindu festival"
     },
     {
@@ -29,7 +29,7 @@ const galleryImages = [
     {
       id: "gallery-3",
       description: "Evening aarti at the temple.",
-      imageUrl: "/images/temple-3d-model.jpeg",
+      imageUrl: "/images/temple.png",
       imageHint: "evening prayer"
     },
     {

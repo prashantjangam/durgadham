@@ -5,7 +5,7 @@ const galleryImages = [
     {
       id: "gallery-1",
       description: "Devotees participating in a festival.",
-      imageUrl: "/images/temple-3d-model.jpeg",
+      imageUrl: "/images/temple.png",
       imageHint: "hindu festival"
     },
     {
@@ -17,7 +17,7 @@ const galleryImages = [
     {
       id: "gallery-3",
       description: "Evening aarti at the temple.",
-      imageUrl: "/images/temple-3d-model.jpeg",
+      imageUrl: "/images/temple.png",
       imageHint: "evening prayer"
     },
     {
@@ -29,7 +29,7 @@ const galleryImages = [
     {
       id: "gallery-5",
       description: "Children playing in the temple courtyard.",
-      imageUrl: "/images/temple-3d-model.jpeg",
+      imageUrl: "/images/temple.png",
       imageHint: "children playing"
     },
     {
@@ -41,7 +41,7 @@ const galleryImages = [
     {
       id: "gallery-7",
       description: "The temple idol decorated with flowers.",
-      imageUrl: "/images/temple-3d-model.jpeg",
+      imageUrl: "/images/temple.png",
       imageHint: "hindu deity"
     },
     {

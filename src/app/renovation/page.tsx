@@ -10,6 +10,12 @@ const historyImage2 = {
   imageHint: "architectural design",
 };
 
+const historyImage1 = {
+  imageUrl: "/images/temple.png",
+  description: "An old picture of the temple.",
+  imageHint: "temple design",
+} 
+
 export default function RenovationPage() {
   return (
     <div className="bg-background">
@@ -45,9 +51,20 @@ export default function RenovationPage() {
               <CardTitle className="font-headline text-2xl">जिर्णोद्धार योजना</CardTitle>
             </CardHeader>
             <CardContent>
-               {historyImage2 && (
+               {historyImage1 && (
                 <div className="relative h-[400px] md:h-[600px] rounded-lg overflow-hidden mb-8">
-                  <Image
+                  <Image id="temple-history"
+                    src={historyImage1.imageUrl}
+                    alt={historyImage1.description}
+                    fill
+                    className="object-contain"
+                    data-ai-hint={historyImage1.imageHint}
+                  />
+                </div> )}
+                 {historyImage2  && (
+                <div className="relative h-[400px] md:h-[600px] rounded-lg overflow-hidden mb-8">
+                
+                  <Image id="renovation-architecture"
                     src={historyImage2.imageUrl}
                     alt={historyImage2.description}
                     fill
