@@ -24,8 +24,10 @@ export default function RootLayout({
       <body className="font-body antialiased">
         <div className="flex flex-col min-h-screen">
           <Header />
-          <main className="flex-grow">
-            {children}
+          <main className="flex-grow flex justify-center">
+            <div className="w-full max-w-6xl px-4 sm:px-6 lg:px-8">
+              {children}
+            </div>
           </main>
           <Footer />
         </div>

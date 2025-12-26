@@ -82,3 +82,19 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Make images and embedded content responsive and center-friendly */
+img,
+iframe,
+video,
+object {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ensure iframes used for PDFs look good on small screens */
+.responsive-iframe {
+  width: 100%;
+  min-height: 20rem;
+}
