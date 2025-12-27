@@ -24,36 +24,28 @@ export type ExecutiveMember = {
 export const events: Event[] = [
   {
     id: "1",
-    title: "वार्षिक कीर्तन महोत्सव",
-    date: "२० ऑगस्ट, २०२४",
-    description: "प्रसिद्ध कीर्तनकारांच्या उपस्थितीत भव्य कीर्तन सोहळा.",
-    image: "/images/temple.png",
+    title: "गोविंदा महोत्सव",
+    date: "वार्षिक कार्यक्रम",
+    description: "प्रसिद्ध कृष्ण जन्माष्टमी ",
+    image: "/images/three.jpeg",
     imageHint: "devotional singing"
   },
   {
     id: "2",
     title: "नवरात्री उत्सव",
-    date: "३ ऑक्टोबर - १२ ऑक्टोबर, २०२४",
+    date: "वार्षिक कार्यक्रम",
     description: "नऊ दिवसांचा भव्य नवरात्री उत्सव, दररोज विविध धार्मिक कार्यक्रम.",
-    image: "/images/temple.png",
+    image: "/images/two.jpeg",
     imageHint: "navratri festival"
   },
   {
     id: "3",
-    title: "महाप्रसाद",
-    date: "प्रत्येक शनिवारी",
-    description: "दर शनिवारी संध्याकाळी आरतीनंतर महाप्रसादाचे आयोजन.",
-    image: "/images/temple.png",
+    title: "वर्धापन दिन ",
+    date: "वार्षिक कार्यक्रम",
+    description: "वर्धापन दिन , पालखी सोहळा आणि सामूहिक भोजन.",
+    image: "/images/vardhapan.jpeg",
     imageHint: "community meal"
-  },
-  {
-    id: "4",
-    title: "भूमिपूजन समारंभ",
-    date: "२५ डिसेंबर, २०२४",
-    description: "मंदिराच्या जिर्णोद्धार कार्याचा शुभारंभ, भूमिपूजन समारंभ.",
-    image: "/images/plan.png",
-    imageHint: "groundbreaking ceremony"
-  },
+  }
 ];
 
 

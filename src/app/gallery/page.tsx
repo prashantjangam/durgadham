@@ -5,49 +5,49 @@ const galleryImages = [
     {
       id: "gallery-1",
       description: "Devotees participating in a festival.",
-      imageUrl: "/images/temple.png",
+      imageUrl: "/images/one.jpeg",
       imageHint: "hindu festival"
     },
     {
       id: "gallery-2",
       description: "Close-up of the temple architecture.",
-      imageUrl: "/images/plan.png",
+      imageUrl: "/images/two.jpeg",
       imageHint: "temple architecture"
     },
     {
       id: "gallery-3",
       description: "Evening aarti at the temple.",
-      imageUrl: "/images/temple.png",
+      imageUrl: "/images/three.jpeg",
       imageHint: "evening prayer"
     },
     {
       id: "gallery-4",
       description: "A vibrant celebration at the temple.",
-      imageUrl: "/images/plan.png",
+      imageUrl: "/images/four.jpeg",
       imageHint: "indian celebration"
     },
     {
       id: "gallery-5",
       description: "Children playing in the temple courtyard.",
-      imageUrl: "/images/temple.png",
+      imageUrl: "/images/five.jpeg",
       imageHint: "children playing"
     },
     {
       id: "gallery-6",
       description: "Intricate carvings on the temple walls.",
-      imageUrl: "/images/plan.png",
+      imageUrl: "/images/six.jpeg",
       imageHint: "stone carving"
     },
     {
       id: "gallery-7",
       description: "The temple idol decorated with flowers.",
-      imageUrl: "/images/temple.png",
+      imageUrl: "/images/seven.jpeg",
       imageHint: "hindu deity"
     },
     {
       id: "gallery-8",
       description: "A panoramic view of the temple complex.",
-      imageUrl: "/images/plan.png",
+      imageUrl: "/images/devi.jpeg",
       imageHint: "temple view"
     }
 ];
