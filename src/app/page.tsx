@@ -108,9 +108,9 @@ export default function Home() {
             priority
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10"></div>
-        <div className="container px-4 md:px-6 z-20 relative">
-          <div className="max-w-3xl mx-auto space-y-4">
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent z-10"></div>
+        <div className="container items-end px-4 md:px-6 z-20 relative">
+          <div   className="max-w-3xl items-end mx-auto  space-y-6">
             <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary font-headline">
             डायमंड स्पोर्ट्स क्लब ( संचालित ) दुर्गामाता मंदिर आणि मित्र मंडळ
             </h1>
