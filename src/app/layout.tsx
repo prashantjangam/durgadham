@@ -1,13 +1,15 @@
+'use client';
 import type { Metadata } from 'next';
 import './globals.css';
 import { Header } from '@/components/layout/header';
 import { Footer } from '@/components/layout/footer';
 import { Toaster } from "@/components/ui/toaster";
+import { StrictMode, use } from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
+import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
 
-export const metadata: Metadata = {
-  title: 'डायमंड स्पोर्ट्स क्लब ( संचालित ) दुर्गामाता मंदिर आणि मित्र मंडळ',
-  description: 'डायमंड स्पोर्ट्स क्लब ( संचालित ) दुर्गामाता मंदिर आणि मित्र मंडळातर्फे जिर्णोद्धार मोहीम',
-};
+
 
 export default function RootLayout({
   children,
@@ -15,6 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+     <StrictMode>
+    <BrowserRouter>
+      <HelmetProvider>
+        <GoogleReCaptchaProvider
+          reCaptchaKey="6LdOATssAAAAAHSThqXSBPylj_ndQroElZKmBMty" // Replace with your site key
+          scriptProps={{ async: true, defer: true }}
+        >
     <html lang="mr" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -34,5 +43,9 @@ export default function RootLayout({
         <Toaster />
       </body>
     </html>
+      </GoogleReCaptchaProvider>
+      </HelmetProvider>
+    </BrowserRouter>
+  </StrictMode>
   );
 }

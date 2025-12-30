@@ -1,0 +1,21 @@
+[build]
+  publish = "dist" # Change to your build folder
+  command = "npm run build"
+  npm_install_command = "npm install --force"
+  functions = "netlify/functions"
+
+[dev]
+  functions = "netlify/functions"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "upgrade-insecure-requests"

@@ -1,4 +1,5 @@
 
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -6,6 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Progress } from '@/components/ui/progress';
 import { ArrowRight, Gift, Building2, Wrench, Users, Calendar } from 'lucide-react';
 import { events } from '@/lib/data';
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
+import { useEffect, useState } from 'react';
 
 const heroImage = {
   imageUrl: "/images/banner.png",
@@ -42,11 +45,57 @@ const galleryImages = [
 const upcomingEvents = events.slice(0, 3);
 
 export default function Home() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
+  const [loading, setLoading] = useState(false);
   const donationGoal = 5000000;
   const currentDonation = 1250000;
   const progress = (currentDonation / donationGoal) * 100;
 
+  
+
+  useEffect(() => {
+    const generateToken = async () => {
+      if (!executeRecaptcha) {
+        console.warn('reCAPTCHA not ready');
+        return;
+      }
+
+      setLoading(true); // Start loading
+
+      try {
+        const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
+        console.log('apiBaseUrl ---:', process.env.NEXT_PUBLIC_API_BASE_URL);
+        const token = await executeRecaptcha('homepage_load');
+        console.log('reCAPTCHA Token:', token);
+        const response = await fetch(`${apiBaseUrl}/verify-captcha`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ token }),
+        });
+        const data = await response.json();
+        console.log('Verification response:', data);
+      } catch (error) {
+        console.error('Error verifying reCAPTCHA:', error);
+      } finally {
+        setLoading(false); // Stop loading
+      }
+    };
+
+    generateToken();
+  }, [executeRecaptcha]);
+
   return (
+    <>
+      {/* Show loader while verifying */}
+      {loading && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+          <div className="flex flex-col items-center">
+            <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
+            <p className="text-white mt-4">Verifying reCAPTCHA...</p>
+          </div>
+        </div>
+      )}
+
     <div className="flex flex-col min-h-[100dvh]">
       <section className="relative w-full py-20 md:py-32 lg:py-40 flex items-center justify-center text-center bg-secondary/20">
         {heroImage && (
@@ -256,5 +305,7 @@ export default function Home() {
       </section>
 
     </div>
+    </>
   );
 }
+
