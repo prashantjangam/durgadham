@@ -1,5 +1,5 @@
 
-'use client';
+"use client";
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
@@ -63,8 +63,8 @@ export default function Home() {
       setLoading(true); // Start loading
 
       try {
-        const apiBaseUrl = process.env.NEXT_PUBLIC_API_BASE_URL;
-        console.log('apiBaseUrl ---:', process.env.NEXT_PUBLIC_API_BASE_URL);
+        const apiBaseUrl = process.env.VITE_API_BASE_URL;
+        console.log('apiBaseUrl ---:',process.env.VITE_API_BASE_URL);
         const token = await executeRecaptcha('homepage_load');
         console.log('reCAPTCHA Token:', token);
         const response = await fetch(`${apiBaseUrl}/verify-captcha`, {

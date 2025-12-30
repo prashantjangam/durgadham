@@ -1,22 +1,7 @@
-import { StrictMode } from 'react';
-import { createRoot } from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
-import { HelmetProvider } from 'react-helmet-async';
-import { GoogleReCaptchaProvider } from 'react-google-recaptcha-v3';
-import App from './page';
-import './index.css';
+// This file previously bootstrapped a client app with `document` APIs
+// It is unused in the Next.js App Router and caused server-side builds
+// to evaluate browser-only code during prerender. Kept as a noop.
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <BrowserRouter>
-      <HelmetProvider>
-        <GoogleReCaptchaProvider
-          reCaptchaKey="6LdOATssAAAAAHSThqXSBPylj_ndQroElZKmBMty" // Replace with your site key
-          scriptProps={{ async: true, defer: true }}
-        >
-          <App />
-        </GoogleReCaptchaProvider>
-      </HelmetProvider>
-    </BrowserRouter>
-  </StrictMode>
-);
+export default function MainNoop() {
+  return null;
+}
