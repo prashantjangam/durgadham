@@ -88,6 +88,7 @@ html,
 body,
 #__next {
   height: 100%;
+  width: 100%;
 }
 
 /* Make images and embedded content responsive and center-friendly */

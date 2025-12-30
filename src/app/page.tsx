@@ -11,7 +11,7 @@ import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useEffect, useState } from 'react';
 
 const heroImage = {
-  imageUrl: "/images/banner.png",
+  imageUrl: "/images/durgabanner.png",
   description: "A beautiful temple at sunrise, representing the Durgadham project.",
   imageHint: "indian temple",
 };
