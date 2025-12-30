@@ -7,7 +7,7 @@ export default function ClientProviders({ children }: { children: React.ReactNod
   return (
     <StrictMode>
       <GoogleReCaptchaProvider
-        reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY || "6LdOATssAAAAAHSThqXSBPylj_ndQroElZKmBMty"}
+        reCaptchaKey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
         scriptProps={{ async: true, defer: true }}
       >
         {children}

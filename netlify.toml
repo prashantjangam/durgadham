@@ -1,12 +1,6 @@
 [build]
   SECRETS_SCAN_OMIT_KEYS = "RECAPTCHA_SITE_KEY,VITE_API_BASE_URL"
   command = "npm run build"
-  environment:
-    - RECAPTCHA_ENTERPRISE_SECRET
-    - RECAPTCHA_MODE
-    - RECAPTCHA_SECRET
-    - RECAPTCHA_SITE_KEY
-    - VITE_API_BASE_URL
   npm_install_command = "npm install --force"
   functions = "netlify/functions"
 
