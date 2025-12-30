@@ -1,5 +1,4 @@
 [build]
-  publish = "dist" # Change to your build folder
   command = "npm run build"
   npm_install_command = "npm install --force"
   functions = "netlify/functions"
