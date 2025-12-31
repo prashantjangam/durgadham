@@ -7,7 +7,7 @@ import ClientProviders from '@/components/client-providers';
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="mr" className="dark" suppressHydrationWarning>
+    <html lang="mr" className="light" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

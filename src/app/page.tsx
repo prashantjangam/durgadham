@@ -5,13 +5,27 @@ import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
-import { ArrowRight, Gift, Building2, Wrench, Users, Calendar } from 'lucide-react';
+import { ArrowRight, Gift, Building2, Wrench, Users, Calendar, Space } from 'lucide-react';
 import { events } from '@/lib/data';
 import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
 import { useEffect, useState } from 'react';
 
+const Spacer = () => <div className="h-4" />;
+
 const heroImage = {
-  imageUrl: "/images/durgabanner.png",
+  imageUrl: "/images/durgabannermain.png",
+  description: "A beautiful temple at sunrise, representing the Durgadham project.",
+  imageHint: "indian temple",
+};
+
+const hero2Image = {
+  imageUrl: "/images/mahishasurkilling.png",
+  description: "A beautiful temple at sunrise, representing the Durgadham project.",
+  imageHint: "indian temple",
+};
+
+const hero3Image = {
+  imageUrl: "/images/navdurga.png",
   description: "A beautiful temple at sunrise, representing the Durgadham project.",
   imageHint: "indian temple",
 };
@@ -97,26 +111,39 @@ export default function Home() {
       )}
 
     <div className="flex flex-col min-h-[100dvh]">
-      <section className="relative w-full py-20 md:py-32 lg:py-40 flex items-center justify-center text-center bg-secondary/20">
+      <section id="hero" className="relative w-full h-full py-20 md:py-32 lg:py-40 flex items-center justify-center text-center bg-secondary/40">
         {heroImage && (
           <Image
             src={heroImage.imageUrl}
             alt={heroImage.description}
-            fill
+            layout="fill"
+            objectFit="fill"
             className="object-cover z-0"
             data-ai-hint={heroImage.imageHint}
             priority
           />
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent z-10"></div>
-        <div className="container items-end px-4 md:px-6 z-20 relative">
-          <div   className="max-w-3xl items-end mx-auto  space-y-6">
-            <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary font-headline">
-            डायमंड स्पोर्ट्स क्लब ( संचालित ) दुर्गामाता मंदिर आणि मित्र मंडळ
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10"></div>
+        <div className="container items-end px-4 md:px-6 z-20 relative space-y-6">
+          <div  id="name_display" className="max-w-3xl items-end mx-auto  space-y-6">
+            
+            <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
+              
+            </div>
+          </div>
+        </div>
+      </section>
+       <section className="w-full py-12 md:py-16 lg:py-20 bg-background justify-center ">
+           <div  id="name_display" className="max-w-3xl items-end mx-auto justify-center space-y-6 text-center">
+       <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary font-headline">
+            डायमंड स्पोर्ट्स क्लब <br/> 
+             ( संचालित ) <br/>
+             दुर्गामाता मंदिर आणि मित्र मंडळ
             </h1>
             <p className="text-lg md:text-xl text-foreground/80">
               डायमंड स्पोर्ट्स क्लब ( संचालित ) दुर्गामाता मंदिर आणि मित्र मंडळ आयोजित दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा. आपले योगदान अमूल्य आहे.
             </p>
+            </div>
             <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
                 <Link href="/donate">
@@ -129,10 +156,21 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
+       </section>
+       
+ <section id="hero2" className="relative w-full py-20 md:py-32 lg:py-40 flex items-center justify-center text-center bg-secondary/20">
+        {hero2Image && (
+          <Image
+            src={hero2Image.imageUrl}
+            alt={hero2Image.description}
+            layout="fill"
+            objectFit="fill"
+            className="object-cover z-0"
+            data-ai-hint={hero2Image.imageHint}
+            priority
+          />
+        )}
+        </section>
       <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
         <div className="container px-4 md:px-6">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -190,6 +228,20 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <section id="hero3" className="relative w-full py-20 md:py-32 lg:py-40 flex items-center justify-center text-center bg-secondary/20">
+        {hero3Image && (
+          <Image
+            src={hero3Image.imageUrl}
+            alt={hero3Image.description}
+            layout="fill"
+            objectFit="fill"
+            className="object-cover z-0"
+            data-ai-hint={hero3Image.imageHint}
+            priority
+          />
+        )}
+        </section>
 
       <section className="w-full py-12 md:py-16 lg:py-20 bg-secondary/10">
         <div className="container px-4 md:px-6">
