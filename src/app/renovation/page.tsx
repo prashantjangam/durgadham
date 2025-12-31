@@ -19,7 +19,7 @@ const historyImage1 = {
 export default function RenovationPage() {
   return (
     <div className="bg-background">
-      <div className="container mx-auto px-4 py-12 md:py-20">
+      <div className="relative w-screen mx-auto px-4 py-12 md:py-20">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">
             मंदिर जिर्णोद्धार मोहीम

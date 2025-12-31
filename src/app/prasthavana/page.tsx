@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 
 export default function PrasthavanaPage() {
   return (
-    <div className="container py-12 md:py-20">
+    <div className="relative w-screen py-12 md:py-20">
       <div className="max-w-4xl mx-auto">
         <Card className="shadow-lg">
             <CardHeader className="text-center">

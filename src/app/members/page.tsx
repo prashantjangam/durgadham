@@ -17,7 +17,7 @@ const roleIcons: { [key: string]: React.ReactNode } = {
 
 export default function MembersPage() {
   return (
-    <div className="container py-12 md:py-20">
+    <div className="relative w-screen py-12 md:py-20">
       <div className="text-center mb-16">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">
           समिती सदस्य

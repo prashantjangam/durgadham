@@ -1,363 +1,259 @@
-
 "use client";
-import Image from 'next/image';
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
-import { ArrowRight, Gift, Building2, Wrench, Users, Calendar, Space } from 'lucide-react';
-import { events } from '@/lib/data';
-import { useGoogleReCaptcha } from 'react-google-recaptcha-v3';
-import { useEffect, useState } from 'react';
 
-const Spacer = () => <div className="h-4" />;
+import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import { Progress } from "@/components/ui/progress";
+import {
+  ArrowRight,
+  Gift,
+  Building2,
+  Wrench,
+  Users,
+  Calendar,
+} from "lucide-react";
+import { events } from "@/lib/data";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import { useEffect, useState } from "react";
 
-const heroImage = {
-  imageUrl: "/images/durgabannermain.png",
-  description: "A beautiful temple at sunrise, representing the Durgadham project.",
-  imageHint: "indian temple",
-};
+/* ------------------ DATA ------------------ */
 
-const hero2Image = {
-  imageUrl: "/images/mahishasurkilling.png",
-  description: "A beautiful temple at sunrise, representing the Durgadham project.",
-  imageHint: "indian temple",
-};
-
-const hero3Image = {
-  imageUrl: "/images/navdurga.png",
-  description: "A beautiful temple at sunrise, representing the Durgadham project.",
-  imageHint: "indian temple",
-};
+const heroImage = "/images/durgabannermain.png";
+const hero2Image = "/images/mahishasurkilling.png";
+const hero3Image = "/images/navdurga.png";
 
 const galleryImages = [
-    {
-      id: "gallery-1",
-      description: "Devotees participating in a festival.",
-      imageUrl: "/images/aai.png",
-      imageHint: "hindu festival"
-    },
-    {
-      id: "gallery-2",
-      description: "Close-up of the temple architecture.",
-      imageUrl: "/images/four.jpeg",
-      imageHint: "temple architecture"
-    },
-    {
-      id: "gallery-3",
-      description: "Evening aarti at the temple.",
-      imageUrl: "/images/six.jpeg",
-      imageHint: "evening prayer"
-    },
-    {
-      id: "gallery-4",
-      description: "A vibrant celebration at the temple.",
-      imageUrl: "/images/devi.jpeg",
-      imageHint: "indian celebration"
-    }
+  { id: "1", imageUrl: "/images/aai.png", description: "Festival" },
+  { id: "2", imageUrl: "/images/four.jpeg", description: "Architecture" },
+  { id: "3", imageUrl: "/images/six.jpeg", description: "Aarti" },
+  { id: "4", imageUrl: "/images/devi.jpeg", description: "Celebration" },
 ];
+
 const upcomingEvents = events.slice(0, 3);
+
+/* ------------------ PAGE ------------------ */
 
 export default function Home() {
   const { executeRecaptcha } = useGoogleReCaptcha();
   const [loading, setLoading] = useState(false);
-  const donationGoal = 5000000;
-  const currentDonation = 1250000;
+
+  const donationGoal = 5_000_000;
+  const currentDonation = 1_250_000;
   const progress = (currentDonation / donationGoal) * 100;
 
-  
-
+  /* -------- reCAPTCHA -------- */
   useEffect(() => {
-    const generateToken = async () => {
-      if (!executeRecaptcha) {
-        console.warn('reCAPTCHA not ready');
-        return;
-      }
+    if (!executeRecaptcha) return;
 
-      setLoading(true); // Start loading
-
+    (async () => {
+      setLoading(true);
       try {
-        const apiBaseUrl = process.env.VITE_API_BASE_URL;
-        console.log('apiBaseUrl ---:',process.env.VITE_API_BASE_URL);
-        const token = await executeRecaptcha('homepage_load');
-        console.log('reCAPTCHA Token:', token);
-        const response = await fetch(`${apiBaseUrl}/verify-captcha`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+        const token = await executeRecaptcha("homepage_load");
+        await fetch(`${process.env.VITE_API_BASE_URL}/verify-captcha`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ token }),
         });
-        const data = await response.json();
-        console.log('Verification response:', data);
-      } catch (error) {
-        console.error('Error verifying reCAPTCHA:', error);
+      } catch (e) {
+        console.error(e);
       } finally {
-        setLoading(false); // Stop loading
+        setLoading(false);
       }
-    };
-
-    generateToken();
+    })();
   }, [executeRecaptcha]);
 
   return (
     <>
-      {/* Show loader while verifying */}
+      {/* Loader */}
       {loading && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="flex flex-col items-center">
-            <div className="w-12 h-12 border-4 border-white border-t-transparent rounded-full animate-spin"></div>
-            <p className="text-white mt-4">Verifying reCAPTCHA...</p>
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
+          <div className="flex flex-col items-center text-white">
+            <div className="h-12 w-12 animate-spin rounded-full border-4 border-white border-t-transparent" />
+            <p className="mt-4">Verifying reCAPTCHA…</p>
           </div>
         </div>
       )}
 
-    <div className="flex flex-col min-h-[100dvh]">
-      <section id="hero" className="relative w-full h-full py-20 md:py-32 lg:py-40 flex items-center justify-center text-center bg-secondary/40">
-        {heroImage && (
-          <Image
-            src={heroImage.imageUrl}
-            alt={heroImage.description}
-            layout="fill"
-            objectFit="fill"
-            className="object-cover z-0"
-            data-ai-hint={heroImage.imageHint}
-            priority
-          />
-        )}
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent z-10"></div>
-        <div className="container items-end px-4 md:px-6 z-20 relative space-y-6">
-          <div  id="name_display" className="max-w-3xl items-end mx-auto  space-y-6">
-            
-            <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
-              
-            </div>
-          </div>
-        </div>
+      {/* ================= HERO ================= */}
+      <section className="relative min-h-[85vh] w-full overflow-hidden">
+        <Image src={heroImage} alt="Durga Mata" fill layout="fill"
+  objectFit="fill" priority className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
       </section>
-       <section className="w-full py-12 md:py-16 lg:py-20 bg-background justify-center ">
-           <div  id="name_display" className="max-w-3xl items-end mx-auto justify-center space-y-6 text-center">
-       <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl text-primary font-headline">
-            डायमंड स्पोर्ट्स क्लब <br/> 
-             ( संचालित ) <br/>
-             दुर्गामाता मंदिर आणि मित्र मंडळ
-            </h1>
-            <p className="text-lg md:text-xl text-foreground/80">
-              डायमंड स्पोर्ट्स क्लब ( संचालित ) दुर्गामाता मंदिर आणि मित्र मंडळ आयोजित दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा. आपले योगदान अमूल्य आहे.
-            </p>
-            </div>
-            <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                <Link href="/donate">
-                  <Gift className="mr-2 h-5 w-5" /> देणगी द्या
-                </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline">
-                <Link href="/renovation">
-                  अधिक जाणून घ्या <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
-       </section>
-       
- <section id="hero2" className="relative w-full py-20 md:py-32 lg:py-40 flex items-center justify-center text-center bg-secondary/20">
-        {hero2Image && (
-          <Image
-            src={hero2Image.imageUrl}
-            alt={hero2Image.description}
-            layout="fill"
-            objectFit="fill"
-            className="object-cover z-0"
-            data-ai-hint={hero2Image.imageHint}
-            priority
-          />
-        )}
-        </section>
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
-        <div className="container px-4 md:px-6">
-          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-headline">
-                  <Building2 className="text-primary" /> दुर्गामाता मंदिर
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  मंदिराचा गौरवशाली इतिहास, त्याची स्थापना आणि महत्त्व जाणून घ्या.
-                </p>
-                <Button asChild variant="link" className="px-0">
-                  <Link href="/temple">
-                    सविस्तर वाचा <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-headline">
-                  <Wrench className="text-primary" /> जिर्णोद्धार मोहीम
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  मंदिराच्या नूतनीकरण आणि विस्तार योजनेबद्दल अधिक जाणून घ्या.
-                </p>
-                <Button asChild variant="link" className="px-0">
-                  <Link href="/renovation">
-                    सविस्तर वाचा <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-headline">
-                  <Users className="text-primary" /> सदस्य व्हा
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">
-                  या पवित्र कार्यात सामील व्हा आणि मंडळाचे सदस्य बना.
-                </p>
-                <Button asChild variant="link" className="px-0">
-                  <Link href="/members">
-                    नोंदणी करा <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
-              </CardContent>
-            </Card>
+
+      {/* ================= TITLE ================= */}
+      <section className="w-full bg-background py-16">
+        <div className="mx-auto max-w-4xl px-4 text-center space-y-6">
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-bold text-primary">
+            डायमंड स्पोर्ट्स क्लब <br />
+            ( संचालित ) <br />
+            दुर्गामाता मंदिर आणि मित्र मंडळ
+          </h1>
+
+          <p className="text-lg text-foreground/80">
+            दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा.
+            आपले योगदान अमूल्य आहे.
+          </p>
+
+          <div className="flex flex-col gap-3 sm:flex-row justify-center">
+            <Button asChild size="lg">
+              <Link href="/donate">
+                <Gift className="mr-2 h-5 w-5" /> देणगी द्या
+              </Link>
+            </Button>
+            <Button asChild size="lg" variant="outline">
+              <Link href="/renovation">
+                अधिक जाणून घ्या <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      <section id="hero3" className="relative w-full py-20 md:py-32 lg:py-40 flex items-center justify-center text-center bg-secondary/20">
-        {hero3Image && (
-          <Image
-            src={hero3Image.imageUrl}
-            alt={hero3Image.description}
-            layout="fill"
-            objectFit="fill"
-            className="object-cover z-0"
-            data-ai-hint={hero3Image.imageHint}
-            priority
-          />
-        )}
-        </section>
+      {/* ================= HERO 2 ================= */}
+      <section className="relative min-h-[70vh] w-full overflow-hidden">
+        <Image src={hero2Image} 
+        layout="fill"
+  objectFit="fill" alt="Mahishasur" fill className="object-cover" />
+      </section>
 
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-secondary/10">
-        <div className="container px-4 md:px-6">
-          <div className="flex flex-col items-center justify-center space-y-4 text-center">
-            <div className="space-y-2">
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline">देणगीचा तपशील</h2>
-              <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                आपल्या सहकार्याने आपण आपले ध्येय नक्कीच गाठू.
+      {/* ================= CARDS ================= */}
+      <section className="w-full bg-background py-16">
+        <div className="mx-auto max-w-7xl px-4 grid gap-8 md:grid-cols-3">
+          <InfoCard
+            icon={<Building2 />}
+            title="दुर्गामाता मंदिर"
+            link="/temple"
+            text="मंदिराचा इतिहास व महत्त्व."
+          />
+          <InfoCard
+            icon={<Wrench />}
+            title="जिर्णोद्धार मोहीम"
+            link="/renovation"
+            text="नूतनीकरण व विस्तार योजना."
+          />
+          <InfoCard
+            icon={<Users />}
+            title="सदस्य व्हा"
+            link="/members"
+            text="मंडळाचे सदस्य बना."
+          />
+        </div>
+      </section>
+
+      {/* ================= HERO 3 ================= */}
+      <section className="relative min-h-[70vh] w-full overflow-hidden">
+        <Image src={hero3Image} 
+        layout="fill"
+  objectFit="fill" alt="Navdurga" fill className="object-cover" />
+      </section>
+
+      {/* ================= DONATION ================= */}
+      <section className="w-full bg-secondary/10 py-16">
+        <div className="mx-auto max-w-5xl px-4">
+          <Card>
+            <CardContent className="space-y-4 pt-6">
+              <div className="flex justify-between font-bold">
+                <span>एकत्रित: ₹{currentDonation.toLocaleString("en-IN")}</span>
+                <span>ध्येय: ₹{donationGoal.toLocaleString("en-IN")}</span>
+              </div>
+              <Progress value={progress} className="h-4" />
+              <p className="text-center text-muted-foreground">
+                {progress.toFixed(2)}% पूर्ण
               </p>
-            </div>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* ================= EVENTS ================= */}
+      <section className="w-full bg-background py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="mb-10 text-center text-3xl font-bold text-primary">
+            आगामी कार्यक्रम
+          </h2>
+
+          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            {upcomingEvents.map((e) => (
+              <Card key={e.id} className="overflow-hidden">
+                <div className="relative h-48">
+                  <Image src={e.image} alt={e.title} fill className="object-cover" />
+                </div>
+                <CardHeader>
+                  <CardTitle>{e.title}</CardTitle>
+                  <CardDescription className="flex items-center gap-2 text-primary">
+                    <Calendar className="h-4 w-4" /> {e.date}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>{e.description}</CardContent>
+              </Card>
+            ))}
           </div>
-          <div className="mx-auto grid max-w-5xl items-center gap-6 py-12">
-            <Card>
-              <CardContent className="pt-6">
-                <div className="space-y-4">
-                  <div className="flex justify-between font-bold text-lg">
-                    <span>
-                      एकत्रित रक्कम: ₹{new Intl.NumberFormat('en-IN').format(currentDonation)}
-                    </span>
-                    <span>
-                      ध्येय: ₹{new Intl.NumberFormat('en-IN').format(donationGoal)}
-                    </span>
-                  </div>
-                  <Progress value={progress} className="h-4" />
-                  <p className="text-center text-muted-foreground">
-                    आपण {progress.toFixed(2)}% ध्येय पूर्ण केले आहे.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+        </div>
+      </section>
+
+      {/* ================= GALLERY ================= */}
+      <section className="w-full bg-secondary/10 py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="mb-10 text-center text-3xl font-bold text-primary">
+            गॅलरी
+          </h2>
+
+          <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+            {galleryImages.map((img) => (
+              <div
+                key={img.id}
+                className="relative aspect-[4/3] overflow-hidden rounded-lg"
+              >
+                <Image
+                  src={img.imageUrl}
+                  alt={img.description}
+                  fill
+                  className="object-cover transition-transform hover:scale-105"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </section>
-
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-background">
-        <div className="container px-4 md:px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                <div className="space-y-2">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">आगामी कार्यक्रम</h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    मंदिरात आयोजित होणाऱ्या विविध धार्मिक आणि सामाजिक कार्यक्रमांची माहिती.
-                    </p>
-                </div>
-            </div>
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                {upcomingEvents.map((event) => (
-                <Card key={event.id} className="overflow-hidden flex flex-col hover:shadow-xl transition-shadow duration-300">
-                    <div className="relative h-48 w-full">
-                    <Image
-                        src={event.image}
-                        alt={event.title}
-                        fill
-                        className="object-cover"
-                        data-ai-hint={event.imageHint}
-                    />
-                    </div>
-                    <CardHeader>
-                    <CardTitle className="font-headline">{event.title}</CardTitle>
-                    <CardDescription className="flex items-center gap-2 pt-1 text-sm text-primary font-semibold">
-                        <Calendar className="h-4 w-4" />
-                        {event.date}
-                    </CardDescription>
-                    </CardHeader>
-                    <CardContent className="flex-grow">
-                    <p className="text-muted-foreground">{event.description}</p>
-                    </CardContent>
-                </Card>
-                ))}
-            </div>
-            <div className="text-center mt-8">
-                <Button asChild variant="outline">
-                    <Link href="/events">
-                    सर्व कार्यक्रम पहा <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                </Button>
-            </div>
-        </div>
-      </section>
-
-      <section className="w-full py-12 md:py-16 lg:py-20 bg-secondary/10">
-        <div className="container px-4 md-px-6">
-            <div className="flex flex-col items-center justify-center space-y-4 text-center mb-12">
-                <div className="space-y-2">
-                    <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl font-headline text-primary">गॅलरी</h2>
-                    <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                        मंदिरातील काही अविस्मरणीय क्षणांची छायाचित्रे.
-                    </p>
-                </div>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {galleryImages.map((image) => (
-                <div key={image.id} className="group relative overflow-hidden rounded-lg">
-                    <Image
-                    src={image.imageUrl}
-                    alt={image.description}
-                    width={600}
-                    height={400}
-                    className="h-full w-full object-cover transition-transform duration-300 ease-in-out group-hover:scale-105"
-                    data-ai-hint={image.imageHint}
-                    />
-                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-                </div>
-                ))}
-            </div>
-            <div className="text-center mt-8">
-                 <Button asChild variant="outline">
-                    <Link href="/gallery">
-                        संपूर्ण गॅलरी पहा <ArrowRight className="ml-2 h-4 w-4" />
-                    </Link>
-                </Button>
-            </div>
-        </div>
-      </section>
-
-    </div>
     </>
   );
 }
 
+/* ------------------ SMALL CARD ------------------ */
+function InfoCard({
+  icon,
+  title,
+  text,
+  link,
+}: {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+  link: string;
+}) {
+  return (
+    <Card className="hover:shadow-lg transition">
+      <CardHeader>
+        <CardTitle className="flex items-center gap-2">
+          <span className="text-primary">{icon}</span> {title}
+        </CardTitle>
+      </CardHeader>
+      <CardContent>
+        <p className="text-muted-foreground">{text}</p>
+        <Button asChild variant="link" className="px-0">
+          <Link href={link}>
+            सविस्तर वाचा <ArrowRight className="ml-1 h-4 w-4" />
+          </Link>
+        </Button>
+      </CardContent>
+    </Card>
+  );
+}

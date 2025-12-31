@@ -28,18 +28,18 @@ function useChart() {
   const context = React.useContext(ChartContext)
 
   if (!context) {
-    throw new Error("useChart must be used within a <ChartContainer />")
+    throw new Error("useChart must be used within a <Chartrelative w-screen />")
   }
 
   return context
 }
 
-const ChartContainer = React.forwardRef<
+const Chartrelative w-screen = React.forwardRef<
   HTMLDivElement,
   React.ComponentProps<"div"> & {
     config: ChartConfig
     children: React.ComponentProps<
-      typeof RechartsPrimitive.ResponsiveContainer
+      typeof RechartsPrimitive.Responsiverelative w-screen
     >["children"]
   }
 >(({ id, className, children, config, ...props }, ref) => {
@@ -58,14 +58,14 @@ const ChartContainer = React.forwardRef<
         {...props}
       >
         <ChartStyle id={chartId} config={config} />
-        <RechartsPrimitive.ResponsiveContainer>
+        <RechartsPrimitive.Responsiverelative w-screen>
           {children}
-        </RechartsPrimitive.ResponsiveContainer>
+        </RechartsPrimitive.Responsiverelative w-screen>
       </div>
     </ChartContext.Provider>
   )
 })
-ChartContainer.displayName = "Chart"
+Chartrelative w-screen.displayName = "Chart"
 
 const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
   const colorConfig = config
@@ -356,7 +356,7 @@ function getPayloadConfigFromPayload(
 }
 
 export {
-  ChartContainer,
+  Chartrelative w-screen,
   ChartTooltip,
   ChartTooltipContent,
   ChartLegend,

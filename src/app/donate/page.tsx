@@ -12,7 +12,7 @@ const historyImage1 = {
 
 export default function DonatePage() {
   return (
-    <div className="container py-12 md:py-20">
+    <div className="relative w-screen py-12 md:py-20">
       <Card className="max-w-5xl mx-auto">
         <CardHeader className="text-center">
           <div className="mx-auto bg-primary/10 p-4 rounded-full w-fit mb-4">

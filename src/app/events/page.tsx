@@ -6,7 +6,7 @@ import { Calendar } from "lucide-react";
 
 export default function EventsPage() {
   return (
-    <div className="container py-12 md:py-20">
+    <div className="relative w-screen py-12 md:py-20">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl font-headline text-primary">
           आगामी कार्यक्रम
