@@ -29,7 +29,7 @@ export function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="relative w-screen flex h-16 items-center">
         <Link href="/" className="mr-6 flex items-center space-x-2">
-          <Icons.om className="h-8 w-8 text-primary" />
+          <Icons.circle className="h-8 w-8 text-primary" />
           <div className="flex flex-col">
             <span className="hidden font-bold sm:inline-block font-headline">
               डायमंड स्पोर्ट्स क्लब

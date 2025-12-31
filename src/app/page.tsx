@@ -81,14 +81,6 @@ export default function Home() {
         </div>
       )}
 
-      {/* ================= HERO ================= */}
-      <section className="relative min-h-[85vh] w-full overflow-hidden">
-        <Image src={heroImage} alt="Durga Mata" fill layout="fill"
-  objectFit="fill" priority className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
-      </section>
-
-      {/* ================= TITLE ================= */}
       <section className="w-full bg-background py-16">
         <div className="mx-auto max-w-4xl px-4 text-center space-y-6">
           <h1 className="font-headline text-4xl sm:text-5xl md:text-6xl font-bold text-primary">
@@ -96,6 +88,20 @@ export default function Home() {
             ( संचालित ) <br />
             दुर्गामाता मंदिर आणि मित्र मंडळ
           </h1>
+          </div>
+      </section>
+
+      {/* ================= HERO ================= */}
+      <section className="relative min-h-[85vh] w-full overflow-hidden">
+        <Image src={heroImage} alt="Durga Mata"  layout="fill"
+  objectFit="fill"  className="object-cover" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
+      </section>
+
+      {/* ================= TITLE ================= */}
+      <section className="w-full bg-background py-16">
+        <div className="mx-auto max-w-4xl px-4 text-center space-y-6">
+        
 
           <p className="text-lg text-foreground/80">
             दुर्गा माता मंदिराच्या जिर्णोद्धार कार्यात सामील व्हा.

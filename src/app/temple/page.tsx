@@ -8,6 +8,12 @@ const historyImage1 = {
   imageHint: "temple design",
 };
 
+const historyImage2 = {
+  imageUrl: "/images/durgabanner.png",
+  description: "An old picture of the temple.",
+  imageHint: "temple design",
+};
+
 export default function TemplePage() {
   return (
     <div className="bg-background">
@@ -20,6 +26,12 @@ export default function TemplePage() {
             आपल्या श्रद्धेच्या केंद्राचा गौरवशाली प्रवास.
           </p>
         </div>
+
+         <section className="relative min-h-[70vh] w-full overflow-hidden">
+                <Image src={historyImage2.imageUrl} 
+                layout="fill"
+          objectFit="fill" alt="Mahishasur" fill className="object-cover" />
+              </section>
 
         <div className="space-y-16">
           <Card className="overflow-hidden">
